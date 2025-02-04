@@ -21,20 +21,6 @@ class DB:
             terminal_name = '{terminal_name}';"""
         cursor = self.conn.execute(query)
         return cursor.fetchall()
-
-    def get_station_data(self, terminal_name):
-        query = f"""
-        SELECT
-            last_update,
-            nb_ebikes,
-            nb_standard_bikes,
-            nb_empty_docks
-        FROM
-            livecyclehireupdates
-        WHERE
-            terminal_name = '{terminal_name}';"""
-        cursor = self.conn.execute(query)
-        return cursor.fetchall()
     
     def get_latest_station_data(self, terminal_name):
         query = f"""
